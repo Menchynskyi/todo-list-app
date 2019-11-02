@@ -5,6 +5,15 @@ module.exports = {
     path: __dirname + "/dist",
     filename: "bundle.js",
   },
+  watch: true,
+
+  devServer: {
+    contentBase: __dirname,
+    compress: true,
+    port: 9000,
+    watchContentBase: true
+  },
+  
 
   module: {
     rules: [
