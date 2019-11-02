@@ -14,16 +14,57 @@
       <span class="title">Todo List App</span>
     </div>
     <div class="todo">
-      <form class="search-panel">
-        <input type="text" name="todos" placeholder="Search your todos..." />
-      </form>
-      <button class="create-button">Create</button>
+      <div class="filter-todo">
+        <form class="search-panel">
+          <input type="text" name="todos" placeholder="Search your todos..." />
+        </form>
+        <div class="status">
+          <label class="label-todo" for="todo-status">Choose todo status:</label>
+          <select class="todo-select" name="todo-status" id="todo-status">
+            <option value="all">all</option>
+            <option value="open">open</option>
+            <option value="done">done</option>
+          </select>
+        </div>
+        <div class="priority">
+          <label class="label-todo" for="todo-priority">Choose todo priority:</label>
+          <select class="todo-select" name="todo-priority" id="todo-priority">
+            <option value="all">all</option>
+            <option value="high">high</option>
+            <option value="normal">normal</option>
+            <option value="low">low</option>
+          </select>
+        </div>
+      </div>
+      <div class="add-item">
+        <button class="create-button">Create</button>
+      </div>
     </div>
-    <div class="footer">
-      <span class="author">Oleksandr Menchynskyi</span>
+    <div class="todo-list">
+      <div class="todo-item">
+        <div class="label">
+          <span>Label todo</span>
+        </div>
+        <div class="description">
+          <span>description of todo</span>
+        </div>
+        <div class="info">
+          <div class="priority-info">
+            <span>high</span>
+          </div>
+          <div class="status-info">
+            <span>done</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <script src="../dist/bundle.js"></script>
+
+    <div>
+      <div class="footer">
+        <span class="author">Oleksandr Menchynskyi</span>
+      </div>
+    </div>
+    <script src="../dist/bundle.js"></script>
 </body>
 
 </html>
