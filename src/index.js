@@ -1,7 +1,9 @@
 import state from './js/data';
 
-import './style/index.scss';
+import './style/main.scss';
 import './style/modal.scss';
+import './style/todo-list.scss';
+import './style/todo-item.scss';
 
 let { idx, customLabel, customDescription, customPriority, search, currentPriority, currentStatus, todoItems } = state;
 

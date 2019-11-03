@@ -1,0 +1,118 @@
+@import './variables';
+
+.todo-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin-bottom: 7rem;
+
+    .todo-item {   
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        width: 20%;
+        height: 300px;
+        border: $border;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 2rem 0 0 2rem;
+        background-color: $bg-color;
+
+        .label {
+            font-size: 1.3em;
+        }
+
+        .info {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: space-between;
+            align-content: flex-start;
+
+            .priority-info {
+                display: flex;
+                justify-content: center;
+                width: 40%;
+                border: $border-dash;
+                border-radius: 5px;
+                padding: 5px 10px;
+                margin-bottom: 2rem;
+            }
+
+            .status-info {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                button {
+                    width: 30%;
+                    border-radius: 5px;
+                    border: $border;
+                    display: inline-block;
+                    cursor: pointer;
+                    font-size: 1em;
+                    font-weight: bold;
+                    padding: 5px 5px;
+                    text-decoration: none;
+                    background-color: transparent;
+                    color: white;
+            
+                    &:active {
+                        transform: scale(0.98);
+                        transition: transform .05s;
+                    }
+            
+                    &:focus {
+                        outline:0;
+                    }
+                    
+                }
+
+                .item-done-button {
+                    background-color: $color-done;
+            
+                    &:hover {
+                        background-color: $color-done-hover;
+                    }
+                    
+                    &:active {
+                        background-color: $color-done-active;
+                    }
+                }
+
+                .item-edit-button {
+                    background-color: $color-edit;
+            
+                    &:hover {
+                        background-color: $color-edit-hover;
+                    }
+                    
+                    &:active {
+                        background-color: $color-edit-active;
+                    }
+                }
+
+                .item-delete-button {
+                    background-color: $color-delete; 
+
+                    &:hover {
+                        background-color: $color-delete-hover;
+                    }
+                    
+                    &:active {
+                        background-color: $color-delete-active;
+                    }
+                }
+            }
+        }
+    }
+
+    .item-done {
+        background-color: $color-item;
+
+        div:not(:last-child) {
+            text-decoration: line-through;
+        }
+    }
+
+}

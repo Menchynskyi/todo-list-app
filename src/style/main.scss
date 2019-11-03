@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Cantarell&display=swap');
+@import './variables';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Cantarell', sans-serif;
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+
+// header styling
+
+#app {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+
+    .header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 70px;
+        border-bottom: $border;
+        background-color: $bg-color;
+
+        .title {
+            padding-left: 20px;
+            font-size: 2em;
+        }
+    }
+}
+
+// footer styling
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    border-top: $border;
+    background-color: $bg-color;
+
+    .author {
+        padding-left: 20px;
+        font-size: 1em;
+    }
+}
+
+// message no items
+
+.message {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 3em;
+    color: rgb(255, 196, 0);
+    margin-top: 4rem;
+}
+
