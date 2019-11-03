@@ -6,14 +6,19 @@
   "plugins": [
     "prettier"
   ],
+  "env": {
+    "browser": true
+  },
   "rules": {
     "quotes": "error",
+    "array-callback-return": "warn",
     "prettier/prettier": [
       "error",
       {
-        "trailingComma": "es5",
+        "trailingComma": "none",
         "singleQuote": true,
-        "printWidth": 120
+        "printWidth": 120,
+        "tabWidth": 4
       }
     ]
   }

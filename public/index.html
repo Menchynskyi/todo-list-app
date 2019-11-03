@@ -4,23 +4,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/a16f50a978.js" crossorigin="anonymous"></script>
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Todo App</title>
 </head>
 
 <body>
   <div id="app">
+
+    <!--HEADER-->
     <div class="header">
       <span class="title">Todo List App</span>
     </div>
+    <!--HEADER-->
+
+    <!--TODO FILTER-->
     <div class="todo">
       <div class="filter-todo">
         <form class="search-panel">
-          <input type="text" name="todos" placeholder="Search your todos..." />
+          <input class="search-input" type="text" name="todos" placeholder="Search your todos..." />
         </form>
         <div class="status">
           <label class="label-todo" for="todo-status">Choose todo status:</label>
-          <select class="todo-select" name="todo-status" id="todo-status">
+          <select class="todo-select todo-select-status" name="todo-status" id="todo-status">
             <option value="all">all</option>
             <option value="open">open</option>
             <option value="done">done</option>
@@ -28,7 +34,7 @@
         </div>
         <div class="priority">
           <label class="label-todo" for="todo-priority">Choose todo priority:</label>
-          <select class="todo-select" name="todo-priority" id="todo-priority">
+          <select class="todo-select todo-select-priority" name="todo-priority" id="todo-priority">
             <option value="all">all</option>
             <option value="high">high</option>
             <option value="normal">normal</option>
@@ -40,30 +46,52 @@
         <button class="create-button">Create</button>
       </div>
     </div>
+    <!--TODO FILTER-->
+
+    <!--TODO LIST-->
     <div class="todo-list">
-      <div class="todo-item">
-        <div class="label">
-          <span>Label todo</span>
-        </div>
-        <div class="description">
-          <span>description of todo</span>
-        </div>
-        <div class="info">
-          <div class="priority-info">
-            <span>high</span>
+    </div>
+    <!--TODO LIST-->
+
+    <!--MODAL-->
+    <div class="back"></div>
+    <div class="popup">
+      <div class="popup-content">
+        <div class="popup-title">
+          <span>Title:</span>
+          <div class="popup-input">
+            <input class="popup-input-label" type="text" placeholder="Your todo's title..." />
           </div>
-          <div class="status-info">
-            <span>done</span>
+        </div>
+        <div class="popup-description">
+          <span>Description:</span>
+          <textarea class="popup-input-description" placeholder="Your todo's description..." rows="3"></textarea>
+        </div>
+
+        <div class="popup-actions">
+          <div class="popup-priority">
+            <span>Priority:</span>
+            <select class="popup-priority-select">
+              <option value="high">high</option>
+              <option value="normal">normal</option>
+              <option value="low">low</option>
+            </select>
           </div>
+          <button class="cancel-button">Cancel</button>
+          <button class="save-button">Save</button>
         </div>
       </div>
     </div>
+    <!--MODAL-->
 
+    <!--FOOTER-->
     <div>
       <div class="footer">
         <span class="author">Oleksandr Menchynskyi</span>
       </div>
     </div>
+    <!--FOOTER-->
+
     <script src="../dist/bundle.js"></script>
 </body>
 
