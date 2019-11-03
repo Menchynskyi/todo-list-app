@@ -4,6 +4,7 @@ import './style/main.scss';
 import './style/modal.scss';
 import './style/todo-list.scss';
 import './style/todo-item.scss';
+import './style/message.scss';
 
 let { idx, customLabel, customDescription, customPriority, search, currentPriority, currentStatus, todoItems } = state;
 
