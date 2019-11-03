@@ -1,22 +1,11 @@
+import state from './js/data';
+
 import './style/index.scss';
 import './style/modal.scss';
 
-const todoList = document.querySelector('.todo-list');
-
-const state = {
-    todoItems: [],
-    idx: 0,
-    customLabel: '',
-    customDescription: '',
-    customPriority: 'normal',
-    search: '',
-    currentPriority: 'all',
-    currentStatus: 'all'
-};
-
 let { idx, customLabel, customDescription, customPriority, search, currentPriority, currentStatus, todoItems } = state;
 
-const createTodos = (label, description, priority) => {
+const createTodoItem = (label, description, priority) => {
     state.todoItems.push({
         label,
         description,
@@ -30,7 +19,9 @@ const createTodos = (label, description, priority) => {
 const message = document.createElement('div');
 message.classList.add('message');
 
-const createElements = arr => {
+const todoList = document.querySelector('.todo-list');
+
+const renderElements = arr => {
     todoList.innerHTML = '';
     if (todoItems.length === 0) {
         message.innerHTML = `
@@ -59,8 +50,8 @@ const createElements = arr => {
                     </div>
                     <div class="status-info">
                         <button data-done="${id}" class="item-done-button">Done</button>
-                        <button data-edit="${id}" class="item-edit-button">edit</button>
-                        <button data-delete="${id}" class="item-delete-button">Delelte</button>
+                        <button data-edit="${id}" class="item-edit-button">Edit</button>
+                        <button data-delete="${id}" class="item-delete-button">Delete</button>
                     </div>
                 </div>
                 `;
@@ -74,7 +65,7 @@ const createElements = arr => {
         buttonsDone.map(el => {
             el.addEventListener('click', () => {
                 state.todoItems[el.dataset.done].status = 'done';
-                createElements(filterArrPriority(filterArrStatus(searchedArr(todoItems))));
+                renderElements(filterArrPriority(filterArrStatus(searchedArr(todoItems))));
             });
         });
 
@@ -85,7 +76,7 @@ const createElements = arr => {
                 const index = todoItems.findIndex(item => item.id === parseInt(el.dataset.delete, 10));
 
                 todoItems = [...todoItems.slice(0, index), ...todoItems.slice(index + 1)];
-                createElements(filterArrPriority(filterArrStatus(searchedArr(todoItems))));
+                renderElements(filterArrPriority(filterArrStatus(searchedArr(todoItems))));
             });
         });
 
@@ -173,8 +164,8 @@ back.addEventListener('click', closePopup);
 
 saveButton.addEventListener('click', () => {
     if (!customLabel || !customDescription) return;
-    createTodos(customLabel, customDescription, customPriority);
-    createElements(filterArrPriority(filterArrStatus(searchedArr(todoItems))));
+    createTodoItem(customLabel, customDescription, customPriority);
+    renderElements(filterArrPriority(filterArrStatus(searchedArr(todoItems))));
     [customLabel, customDescription, customPriority] = ['', ''];
     closePopup();
 });
@@ -205,7 +196,7 @@ const searchInput = document.querySelector('.search-input');
 searchInput.addEventListener('input', () => {
     search = searchInput.value;
     visibleItems = filterArrPriority(filterArrStatus(searchedArr(todoItems)));
-    createElements(visibleItems);
+    renderElements(visibleItems);
 
     if (visibleItems.length === 0) {
         message.innerHTML = `
@@ -222,7 +213,7 @@ statusSelect.addEventListener(
     () => {
         currentStatus = statusSelect.value;
         visibleItems = filterArrPriority(filterArrStatus(searchedArr(todoItems)));
-        createElements(visibleItems);
+        renderElements(visibleItems);
 
         if (visibleItems.length === 0) {
             message.innerHTML = `
@@ -241,7 +232,7 @@ prioritySelect.addEventListener(
     () => {
         currentPriority = prioritySelect.value;
         visibleItems = filterArrPriority(filterArrStatus(searchedArr(todoItems)));
-        createElements(visibleItems);
+        renderElements(visibleItems);
 
         if (visibleItems.length === 0) {
             message.innerHTML = `
@@ -253,4 +244,4 @@ prioritySelect.addEventListener(
     false
 );
 
-createElements(todoItems);
+renderElements(todoItems);

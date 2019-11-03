@@ -8,6 +8,8 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
     height: 100vh;
     font-family: 'Cantarell', sans-serif;
     background-color: rgb(41, 41, 41);
@@ -19,6 +21,7 @@ body {
 #app {
     display: flex;
     flex-flow: column wrap;
+    width: 100%;
 
     .header {
         display: flex;
@@ -173,24 +176,28 @@ body {
 
         .info {
             display: flex;
-            flex-flow: row wrap;
+            flex-flow: column wrap;
             justify-content: space-between;
-            align-content: center;
+            align-content: flex-start;
 
             .priority-info {
+                display: flex;
+                justify-content: center;
+                width: 40%;
                 border: $border-dash;
                 border-radius: 5px;
                 padding: 5px 10px;
+                margin-bottom: 2rem;
             }
 
             .status-info {
-                flex-grow: 1;
+                width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
-                margin-left: 10px;
 
                 button {
+                    width: 30%;
                     border-radius: 5px;
                     border: $border;
                     display: inline-block;
@@ -222,6 +229,18 @@ body {
                     
                     &:active {
                         background-color: $color-done-active;
+                    }
+                }
+
+                .item-edit-button {
+                    background-color: $color-edit;
+            
+                    &:hover {
+                        background-color: $color-edit-hover;
+                    }
+                    
+                    &:active {
+                        background-color: $color-edit-active;
                     }
                 }
 
