@@ -68,7 +68,9 @@ const renderElements = arr => {
 
         buttonsDone.map(el => {
             el.addEventListener('click', () => {
-                state.todoItems[el.dataset.done].status = 'done';
+                const index = todoItems.findIndex(item => item.id === parseInt(el.dataset.done, 10));
+
+                todoItems[index].status = 'done';
                 renderElements(filterArrPriority(filterArrStatus(searchedArr(todoItems))));
             });
         });
