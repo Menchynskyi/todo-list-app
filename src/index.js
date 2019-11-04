@@ -9,7 +9,7 @@ import './style/message.scss';
 let { idx, customLabel, customDescription, customPriority, search, currentPriority, currentStatus, todoItems } = state;
 
 const createTodoItem = (label, description, priority) => {
-    todoItems.push({
+    todoItems.unshift({
         label,
         description,
         id: idx,
