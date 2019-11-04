@@ -100,6 +100,9 @@ const renderElements = arr => {
 
                 popup.style.display = 'block';
                 back.style.display = 'block';
+
+                todoItems = [...todoItems.slice(0, index), ...todoItems.slice(index + 1)];
+                renderElements(filterArrPriority(filterArrStatus(searchedArr(todoItems))));
             });
         });
     }
