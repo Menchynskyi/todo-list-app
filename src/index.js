@@ -16,6 +16,7 @@ const createTodoItem = (label, description, priority) => {
         status: 'open',
         priority
     });
+
     idx += 1;
 };
 
