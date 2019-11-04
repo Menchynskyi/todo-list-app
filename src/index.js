@@ -29,7 +29,7 @@ const renderElements = arr => {
     todoList.innerHTML = '';
     if (todoItems.length === 0) {
         message.innerHTML = `
-                        <span>It's time to add new todo</span>
+                        <span>It's time to add new todo!</span>
                         `;
         todoList.appendChild(message);
     }
